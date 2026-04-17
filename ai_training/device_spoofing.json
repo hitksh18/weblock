@@ -1,0 +1,20 @@
+{
+  "attack_type": "Device Spoofing",
+  "description": "Patterns for detecting device spoofing and MAC address manipulation",
+  "indicators": {
+    "mac_change_threshold_minutes": 10,
+    "multiple_macs_same_user": true,
+    "same_mac_different_ips": true,
+    "device_fingerprint_mismatch": true,
+    "browser_fingerprint_change": true
+  },
+  "risk_weight": 80,
+  "confidence_threshold": 75,
+  "detection_rules": [
+    "New MAC address for existing user",
+    "Same MAC on different IP addresses rapidly",
+    "Unapproved device accessing system",
+    "Device fingerprint inconsistency",
+    "Suspicious user-agent changes"
+  ]
+}

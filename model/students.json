@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "roll_number": "2211CS040100",
+      "name": "Rajesh Kumar Patel",
+      "email": "2211cs040100@mru.edu.in",
+      "password": "Student@100"
+    },
+    {
+      "roll_number": "2211CS040101",
+      "name": "Priya Sharma Reddy",
+      "email": "2211cs040101@mru.edu.in",
+      "password": "Student@101"
+    },
+    {
+      "roll_number": "2211CS040102",
+      "name": "Amit Singh Rao",
+      "email": "2211cs040102@mru.edu.in",
+      "password": "Student@102"
+    },
+    {
+      "roll_number": "2211CS040103",
+      "name": "Sneha Lakshmi Devi",
+      "email": "2211cs040103@mru.edu.in",
+      "password": "Student@103"
+    },
+    {
+      "roll_number": "2211CS040104",
+      "name": "Karthik Venkat Naidu",
+      "email": "2211cs040104@mru.edu.in",
+      "password": "Student@104"
+    },
+    {
+      "roll_number": "2211CS040105",
+      "name": "Anjali Reddy Chowdary",
+      "email": "2211cs040105@mru.edu.in",
+      "password": "Student@105"
+    }
+  ]
+}

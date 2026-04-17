@@ -1,0 +1,6 @@
+{
+  "max_attempts": 3,
+  "time_window": 60,
+  "lockout_duration": 300,
+  "description": "Brute force detection configuration"
+}

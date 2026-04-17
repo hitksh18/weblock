@@ -1,0 +1,550 @@
+[
+  {
+    "incident_id": "INC-20251124-232642",
+    "username": "admin'--@test.com",
+    "user_ip": "127.0.0.1",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-24T23:26:42.857529",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "severity": "Critical",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "Demo ISP Provider",
+    "captures": [
+      {
+        "type": "intruder_image",
+        "path": "static/images/sample_intruder.jpg",
+        "timestamp": "2025-11-24 23:26:42.857529"
+      },
+      {
+        "type": "screenshot",
+        "path": "static/images/sample_screenshot_1.png",
+        "timestamp": "2025-11-24 23:26:42.857529"
+      },
+      {
+        "type": "keylogs",
+        "path": "logs/sample_key_logs.json",
+        "timestamp": "2025-11-24 23:26:42.857529"
+      }
+    ],
+    "metadata": {
+      "user_agent": "curl/8.14.1",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 92,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    }
+  },
+  {
+    "incident_id": "INC-20251124-232648",
+    "username": "admin'--@test.com",
+    "user_ip": "127.0.0.1",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-24T23:26:48.881232",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "severity": "Critical",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "Demo ISP Provider",
+    "captures": [
+      {
+        "type": "intruder_image",
+        "path": "static/images/sample_intruder.jpg",
+        "timestamp": "2025-11-24 23:26:48.881232"
+      },
+      {
+        "type": "screenshot",
+        "path": "static/images/sample_screenshot_1.png",
+        "timestamp": "2025-11-24 23:26:48.881232"
+      },
+      {
+        "type": "keylogs",
+        "path": "logs/sample_key_logs.json",
+        "timestamp": "2025-11-24 23:26:48.881232"
+      }
+    ],
+    "metadata": {
+      "user_agent": "curl/8.14.1",
+      "failed_attempts": 2,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 92,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    }
+  },
+  {
+    "incident_id": "INC-20251124-232833",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-24T23:28:33.885480",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "severity": "Critical",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "Demo ISP Provider",
+    "captures": [
+      {
+        "type": "intruder_image",
+        "path": "static/images/sample_intruder.jpg",
+        "timestamp": "2025-11-24 23:28:33.885480"
+      },
+      {
+        "type": "screenshot",
+        "path": "static/images/sample_screenshot_1.png",
+        "timestamp": "2025-11-24 23:28:33.885480"
+      },
+      {
+        "type": "keylogs",
+        "path": "logs/sample_key_logs.json",
+        "timestamp": "2025-11-24 23:28:33.885480"
+      }
+    ],
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 92,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    }
+  },
+  {
+    "incident_id": "INC-20251124-234825",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": "eyJpbmNpZGVudF9pZCI6IklOQy0yMDI1MTEyNC0yMzI4MzMiLCJpbnRydWRlciI6dHJ1ZX0.aSTqIQ.uR-Ddeaji8L6GctlWJAznb4NbIg",
+    "timestamp": "2025-11-24T23:48:25.665369",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "severity": "Critical",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "Demo ISP Provider",
+    "captures": [
+      {
+        "type": "intruder_image",
+        "path": "static/images/sample_intruder.jpg",
+        "timestamp": "2025-11-24 23:48:25.665369"
+      },
+      {
+        "type": "screenshot",
+        "path": "static/images/sample_screenshot_1.png",
+        "timestamp": "2025-11-24 23:48:25.665369"
+      },
+      {
+        "type": "keylogs",
+        "path": "logs/sample_key_logs.json",
+        "timestamp": "2025-11-24 23:48:25.665369"
+      }
+    ],
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 92,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    }
+  },
+  {
+    "incident_id": "INC-20251124-235402",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": "eyJpbmNpZGVudF9pZCI6IklOQy0yMDI1MTEyNC0yMzQ4MjUiLCJpbnRydWRlciI6dHJ1ZSwidXNlciI6IjIyMTFjczA0MDEwMEBtcnUuZWR1LmluIn0.aSTv7g.VG8iiSknkYIPh0MT_M3Ulj2E4E4",
+    "timestamp": "2025-11-24T23:54:02.170411",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "severity": "Critical",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "Demo ISP Provider",
+    "captures": [
+      {
+        "type": "intruder_image",
+        "path": "static/images/sample_intruder.jpg",
+        "timestamp": "2025-11-24 23:54:02.170411"
+      },
+      {
+        "type": "screenshot",
+        "path": "static/images/sample_screenshot_1.png",
+        "timestamp": "2025-11-24 23:54:02.170411"
+      },
+      {
+        "type": "keylogs",
+        "path": "logs/sample_key_logs.json",
+        "timestamp": "2025-11-24 23:54:02.170411"
+      }
+    ],
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 92,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    }
+  },
+  {
+    "incident_id": "INC-20251125-001358",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T00:13:58.696211",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-001620",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T00:16:20.595298",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-002231",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T00:22:31.261343",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-003001",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T00:30:01.400032",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-003229",
+    "username": "root",
+    "user_ip": "127.0.0.1",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T00:32:29.151840",
+    "reason": "Honeypot Credentials - Fake Admin Login",
+    "status": "captured",
+    "attack_type": "Honeypot Credentials - Fake Admin Login",
+    "risk_score": 95,
+    "confidence": 100,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "curl/8.14.1",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 95,
+      "confidence": 100,
+      "all_attacks_detected": [
+        "Honeypot Credentials Used"
+      ],
+      "honeypot_username": "root"
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-010416",
+    "username": "admin ",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T01:04:16.973000",
+    "reason": "Brute Force",
+    "status": "captured",
+    "attack_type": "Brute Force",
+    "risk_score": 75,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 3,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": true,
+      "risk_score": 75,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "Brute Force"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-011429",
+    "username": "admin'--@test.com",
+    "user_ip": "172.31.91.66",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T01:14:29.354474",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-014038",
+    "username": "",
+    "user_ip": "127.0.0.1",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T01:40:38.481838",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "curl/8.14.1",
+      "failed_attempts": 1,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  },
+  {
+    "incident_id": "INC-20251125-014059",
+    "username": "",
+    "user_ip": "127.0.0.1",
+    "user_mac": "00:00:00:00:00:00",
+    "session_id": null,
+    "timestamp": "2025-11-25T01:40:59.887180",
+    "reason": "SQL Injection",
+    "status": "captured",
+    "attack_type": "SQL Injection",
+    "risk_score": 90,
+    "confidence": 90,
+    "severity": "High",
+    "metadata": {
+      "user_agent": "curl/8.14.1",
+      "failed_attempts": 2,
+      "device_mismatch": false,
+      "geo_anomaly": false,
+      "suspicious_path": false,
+      "behavioral_anomaly": false,
+      "risk_score": 90,
+      "confidence": 90,
+      "all_attacks_detected": [
+        "SQL Injection"
+      ]
+    },
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "country": "India",
+    "latitude": "17.3850",
+    "longitude": "78.4867",
+    "isp": "ACT Fibernet"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "admin_users": [
+    {
+      "username": "admin1825",
+      "password": "admin@1825",
+      "role": "admin",
+      "access_level": "full",
+      "full_name": "System Administrator"
+    }
+  ],
+  "fake_admin_credentials": [
+    {
+      "username": "root",
+      "password": "toor",
+      "redirect_to": "fake_admin",
+      "trigger_trap": true
+    },
+    {
+      "username": "administrator",
+      "password": "admin123",
+      "redirect_to": "fake_admin",
+      "trigger_trap": true
+    },
+    {
+      "username": "admin",
+      "password": "admin",
+      "redirect_to": "fake_admin",
+      "trigger_trap": true
+    }
+  ]
+}

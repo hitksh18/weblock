@@ -1,0 +1,15 @@
+{
+  "patterns": [
+    "('|(\\'))",
+    "(--|\\/\\*)",
+    "(;\\s*(DROP|DELETE|UPDATE|INSERT|ALTER))",
+    "(UNION.*SELECT)",
+    "('\\s*OR\\s*'1'\\s*=\\s*'1)",
+    "('\\s*OR\\s*1\\s*=\\s*1)",
+    "(admin'--)",
+    "('\\s*OR\\s*'x'\\s*=\\s*'x)",
+    "(\\bEXEC\\b|\\bEXECUTE\\b)",
+    "(\\bxp_\\w+)",
+    "(\\bsp_\\w+)"
+  ]
+}

@@ -1,0 +1,94 @@
+✅ MongoDB connected successfully
+============================================================
+🔐 WebLock - Intrusion Detection System
+============================================================
+📝 DEMO MODE: True
+🌐 Access the application at: http://localhost:5000
+
+🧪 Test SQL Injection Detection:
+   Email: admin'--@test.com
+   Password: admin' OR 'x'='x
+
+✅ Valid Credentials:
+   Dashboard Admin: dashuser / dash123
+   Regular User: student1 / pass123
+============================================================
+ * Debugger is active!
+ * Debugger PIN: 121-108-289
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/css/student.css HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/js/loading.js HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/images/mru_logo.png HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.1.2 - - [25/Nov/2025 06:20:33] "GET / HTTP/1.1" 200 -
+🔍 Login attempt: 2211cs040100@mru.edu.in from 192.168.1.2
+192.168.1.2 - - [25/Nov/2025 06:21:02] "POST /login HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/images/mru_logo.png HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /login HTTP/1.1" 405 -
+192.168.1.2 - - [25/Nov/2025 06:21:03] "GET /login HTTP/1.1" 405 -
+🔍 Login attempt: 2211cs040100@mru.edu.in from 192.168.1.2
+192.168.1.2 - - [25/Nov/2025 06:21:09] "POST /login HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/css/style.css HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:10] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /student/profile HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/css/style.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:14] "GET /student/profile HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /logout HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /student/profile HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/images/mru_logo.png HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:17] "GET / HTTP/1.1" 200 -
+🔍 Login attempt: admin'--@test.com from 192.168.1.2
+🚨 ATTACK DETECTED: SQL Injection (Risk: 90)
+🚨 TRAP ACTIVATED: SQL Injection
+   IP: 192.168.1.2, User: admin'--@test.com
+🚨 Executing traps for 192.168.1.2
+🔴 Intruder Logged: 192.168.1.2 from Hyderabad
+⚠ OpenCV not available, skipping demo image creation
+⚠ [DEMO] Screenshot #1 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062150.png
+⌨ [DEMO] Keylogger simulated
+✅ All traps executed for 192.168.1.2
+✅ Trap executed successfully: INC-20251125-062150
+192.168.1.2 - - [25/Nov/2025 06:21:50] "POST /login HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:50] "GET /fake_admin HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:50] "GET /fake_admin HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:51] "GET /fake_admin HTTP/1.1" 200 -
+⚠ [DEMO] Screenshot #2 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062155.png
+⚠ [DEMO] Screenshot #3 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062200.png
+192.168.1.2 - - [25/Nov/2025 06:23:36] "GET /admin_dashboard HTTP/1.1" 404 -
+192.168.1.2 - - [25/Nov/2025 06:23:36] "GET /admin_dashboard HTTP/1.1" 404 -
+192.168.1.2 - - [25/Nov/2025 06:23:37] "GET /admin_dashboard HTTP/1.1" 404 -
+Exception in thread Thread-1 (serve_forever):
+Traceback (most recent call last):
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\werkzeug\serving.py", line 819, in serve_forever
+    super().serve_forever(poll_interval=poll_interval)
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 233, in serve_forever
+    ready = selector.select(poll_interval)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\selectors.py", line 323, in select
+    r, w, _ = self._select(self._readers, self._writers, [], timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\selectors.py", line 314, in _select
+    r, w, x = select.select(r, w, w, timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 10038] An operation was attempted on something that is not a socket
+(venv) PS C:\Users\hites\OneDrive\Desktop\TrapActivation> 

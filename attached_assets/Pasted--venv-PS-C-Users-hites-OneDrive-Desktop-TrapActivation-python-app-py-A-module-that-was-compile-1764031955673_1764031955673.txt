@@ -1,0 +1,176 @@
+(venv) PS C:\Users\hites\OneDrive\Desktop\TrapActivation> python app.py
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.3.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\app.py", line 5, in <module>
+    from trap import trigger_trap
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\trap.py", line 12, in <module>
+    import cv2
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\cv2\__init__.py", line 181, in <module>
+    bootstrap()
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\cv2\__init__.py", line 153, in bootstrap
+    native_module = importlib.import_module("cv2")
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.3.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\app.py", line 5, in <module>
+    from trap import trigger_trap
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\trap.py", line 18, in <module>
+    import pyautogui
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\pyautogui\__init__.py", line 180, in <module>
+    import pyscreeze
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\pyscreeze\__init__.py", line 27, in <module>
+    import cv2
+AttributeError: _ARRAY_API not found
+✅ MongoDB connected successfully
+============================================================
+🔐 WebLock - Intrusion Detection System
+============================================================
+📝 DEMO MODE: True
+🌐 Access the application at: http://localhost:5000
+
+🧪 Test SQL Injection Detection:
+   Email: admin'--@test.com
+   Password: admin' OR 'x'='x
+
+✅ Valid Credentials:
+   Dashboard Admin: dashuser / dash123
+   Regular User: student1 / pass123
+============================================================
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.2:5000
+Press CTRL+C to quit
+ * Restarting with stat
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.3.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\app.py", line 5, in <module>
+    from trap import trigger_trap
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\trap.py", line 12, in <module>
+    import cv2
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\cv2\__init__.py", line 181, in <module>
+    bootstrap()
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\cv2\__init__.py", line 153, in bootstrap
+    native_module = importlib.import_module("cv2")
+  File "C:\Users\hites\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+AttributeError: _ARRAY_API not found
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.3.5 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\app.py", line 5, in <module>
+    from trap import trigger_trap
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\trap.py", line 18, in <module>
+    import pyautogui
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\pyautogui\__init__.py", line 180, in <module>
+    import pyscreeze
+  File "C:\Users\hites\OneDrive\Desktop\TrapActivation\venv\Lib\site-packages\pyscreeze\__init__.py", line 27, in <module>
+    import cv2
+AttributeError: _ARRAY_API not found
+✅ MongoDB connected successfully
+============================================================
+🔐 WebLock - Intrusion Detection System
+============================================================
+📝 DEMO MODE: True
+🌐 Access the application at: http://localhost:5000
+
+🧪 Test SQL Injection Detection:
+   Email: admin'--@test.com
+   Password: admin' OR 'x'='x
+
+✅ Valid Credentials:
+   Dashboard Admin: dashuser / dash123
+   Regular User: student1 / pass123
+============================================================
+ * Debugger is active!
+ * Debugger PIN: 121-108-289
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/css/student.css HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/js/loading.js HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /static/images/mru_logo.png HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:20:32] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.1.2 - - [25/Nov/2025 06:20:33] "GET / HTTP/1.1" 200 -
+🔍 Login attempt: 2211cs040100@mru.edu.in from 192.168.1.2
+192.168.1.2 - - [25/Nov/2025 06:21:02] "POST /login HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/images/mru_logo.png HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:02] "GET /login HTTP/1.1" 405 -
+192.168.1.2 - - [25/Nov/2025 06:21:03] "GET /login HTTP/1.1" 405 -
+🔍 Login attempt: 2211cs040100@mru.edu.in from 192.168.1.2
+192.168.1.2 - - [25/Nov/2025 06:21:09] "POST /login HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/css/style.css HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:09] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:10] "GET /student HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /student/profile HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/css/style.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:13] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:14] "GET /student/profile HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /logout HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /student/profile HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/css/student.css HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/js/loading.js HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET /static/images/mru_logo.png HTTP/1.1" 304 -
+192.168.1.2 - - [25/Nov/2025 06:21:15] "GET / HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:17] "GET / HTTP/1.1" 200 -
+🔍 Login attempt: admin'--@test.com from 192.168.1.2
+🚨 ATTACK DETECTED: SQL Injection (Risk: 90)
+🚨 TRAP ACTIVATED: SQL Injection
+   IP: 192.168.1.2, User: admin'--@test.com
+🚨 Executing traps for 192.168.1.2
+🔴 Intruder Logged: 192.168.1.2 from Hyderabad
+⚠ OpenCV not available, skipping demo image creation
+⚠ [DEMO] Screenshot #1 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062150.png
+⌨ [DEMO] Keylogger simulated
+✅ All traps executed for 192.168.1.2
+✅ Trap executed successfully: INC-20251125-062150
+192.168.1.2 - - [25/Nov/2025 06:21:50] "POST /login HTTP/1.1" 302 -
+192.168.1.2 - - [25/Nov/2025 06:21:50] "GET /fake_admin HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:50] "GET /fake_admin HTTP/1.1" 200 -
+192.168.1.2 - - [25/Nov/2025 06:21:51] "GET /fake_admin HTTP/1.1" 200 -
+⚠ [DEMO] Screenshot #2 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062155.png
+⚠ [DEMO] Screenshot #3 (OpenCV not available)
+🖼 Screenshot Saved: screenshot_192_168_1_2_20251125_062200.png

@@ -1,0 +1,25 @@
+{
+  "attack_type": "Payload Injection",
+  "description": "Patterns for detecting various payload injection and manipulation attempts",
+  "patterns": [
+    "{\"role\":\"admin\"}",
+    "../../etc/passwd",
+    "../../../",
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "%00",
+    "${",
+    "{{",
+    "__proto__",
+    "constructor",
+    "prototype"
+  ],
+  "indicators": {
+    "excessive_length": 1000,
+    "special_char_density": 0.3,
+    "path_traversal": true,
+    "template_injection": true,
+    "json_manipulation": true
+  },
+  "risk_weight": 82,
+  "confidence_threshold": 77
+}

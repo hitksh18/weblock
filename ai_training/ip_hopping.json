@@ -1,0 +1,20 @@
+{
+  "attack_type": "IP Hopping / Geo-hopping",
+  "description": "Patterns for detecting IP hopping and geographical anomalies",
+  "indicators": {
+    "max_distance_km": 200,
+    "time_threshold_minutes": 30,
+    "multiple_ips_threshold": 3,
+    "proxy_vpn_detection": true,
+    "tor_detection": true
+  },
+  "risk_weight": 85,
+  "confidence_threshold": 78,
+  "detection_rules": [
+    "Login from distant geographical location in short time",
+    "Multiple IP addresses within minutes",
+    "Known proxy/VPN IP ranges",
+    "Tor exit node detection",
+    "Impossible travel detection"
+  ]
+}

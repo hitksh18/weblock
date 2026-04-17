@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebLock - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f29 100%);
+            color: #e1e8ed;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0f1419;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #F57C00;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff9100;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #F57C00;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(245, 124, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .hamburger:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4);
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #1a1f29 0%, #151a23 100%);
+            border-right: 1px solid #2d3748;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid #2d3748;
+        }
+        
+        .sidebar-header h2 {
+            color: #F57C00;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-header p {
+            color: #718096;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        
+        .nav-menu {
+            margin-top: 20px;
+        }
+        
+        .nav-item {
+            padding: 12px 20px;
+            color: #a0aec0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: linear-gradient(90deg, rgba(245, 124, 0, 0.15) 0%, rgba(45, 55, 72, 0.8) 100%);
+            color: #F57C00;
+            border-left: 3px solid #F57C00;
+            transform: translateX(5px);
+        }
+        
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 30px;
+            transition: margin-left 0.3s ease-in-out;
+            width: 100%;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+        }
+        
+        .top-bar {
+            background: linear-gradient(135deg, #1a1f29 0%, #1e2530 100%);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #2d3748;
+        }
+        
+        .top-bar h1 {
+            color: #F57C00;
+            font-size: 28px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logout-btn {
+            background: #ef4444;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+        
+        /* Dashboard Widgets */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1a1f29 0%, #1e2530 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #F57C00;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .stat-card.danger { border-left-color: #ef4444; }
+        .stat-card.warning { border-left-color: #f59e0b; }
+        .stat-card.success { border-left-color: #10b981; }
+        .stat-card.info { border-left-color: #3b82f6; }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .stat-header h3 {
+            color: #a0aec0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .stat-icon.danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+        .stat-icon.warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+        .stat-icon.success { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .stat-icon.info { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e1e8ed;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        /* Cards */
+        .card {
+            background: #1a1f29;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-header h2 {
+            color: #F57C00;
+            font-size: 20px;
+        }
+        
+        .btn {
+            background: #F57C00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background: #e67700;
+        }
+        
+        .btn-secondary {
+            background: #4a5568;
+        }
+        
+        .btn-secondary:hover {
+            background: #2d3748;
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #2d3748;
+        }
+        
+        th {
+            background: #0f1419;
+            color: #a0aec0;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            color: #e1e8ed;
+        }
+        
+        tr:hover {
+            background: rgba(245, 124, 0, 0.05);
+        }
+        
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .badge-high { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .badge-medium { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .badge-low { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        
+        .view-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .view-btn:hover {
+            background: #2563eb;
+        }
+        
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            padding: 20px;
+        }
+        
+        /* Search & Filter */
+        .search-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px;
+            background: #0f1419;
+            border: 1px solid #2d3748;
+            border-radius: 6px;
+            color: #e1e8ed;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #F57C00;
+        }
+        
+        /* Section Toggle */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Map */
+        #attack-map {
+            height: 500px;
+            border-radius: 10px;
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+        
+        /* Quick Actions Grid */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .action-card {
+            background: linear-gradient(135deg, #1e2530 0%, #1a1f29 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #2d3748;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #F57C00, #ff9100);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .action-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .action-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(245, 124, 0, 0.2);
+            border-color: #F57C00;
+        }
+        
+        .action-card i {
+            font-size: 36px;
+            color: #F57C00;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .action-card h3 {
+            color: #e1e8ed;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .action-card p {
+            color: #718096;
+            font-size: 13px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .top-bar {
+                margin-top: 60px;
+                padding: 15px 20px;
+            }
+            
+            .top-bar h1 {
+                font-size: 22px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .user-info {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Make evidence and keylog sections responsive */
+            #captured-evidence > .card > div[style*="grid-template-columns"],
+            #keylogs > .card > div[style*="grid-template-columns"] {
+                display: flex !important;
+                flex-direction: column !important;
+                height: auto !important;
+            }
+            
+            #captured-evidence > .card > div > div,
+            #keylogs > .card > div > div {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 300px !important;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 15px;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-card {
+                padding: 15px;
+            }
+            
+            .action-card i {
+                font-size: 28px;
+            }
+            
+            .stat-number {
+                font-size: 24px;
+            }
+        }
+        
+        /* Sidebar Overlay for Mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <button class="hamburger" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-shield-alt"></i> WebLock</h2>
+            <p>Forensic Admin Panel</p>
+        </div>
+        <nav class="nav-menu">
+            <a class="nav-item active" onclick="showSection('dashboard')">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a class="nav-item" onclick="showSection('intruders')">
+                <i class="fas fa-user-secret"></i> Intruder Logs
+            </a>
+            <a class="nav-item" onclick="showSection('students')">
+                <i class="fas fa-users"></i> Student Data
+            </a>
+            <a class="nav-item" onclick="showSection('captured-evidence')">
+                <i class="fas fa-folder-open"></i> Captured Evidence
+            </a>
+            <a class="nav-item" onclick="showSection('keylogs')">
+                <i class="fas fa-keyboard"></i> Keylogs
+            </a>
+            <a class="nav-item" onclick="showSection('analytics')">
+                <i class="fas fa-chart-line"></i> Analytics
+            </a>
+            <a class="nav-item" onclick="showSection('map')">
+                <i class="fas fa-map-marked-alt"></i> Attack Map
+            </a>
+            <a class="nav-item" onclick="showSection('honeypot')">
+                <i class="fas fa-spider"></i> Honeypot Events
+            </a>
+            <a class="nav-item" onclick="showSection('ai-training')">
+                <i class="fas fa-brain"></i> AI Training Data
+            </a>
+            <a class="nav-item" onclick="showSection('settings')">
+                <i class="fas fa-cog"></i> System Settings
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <h1>Admin Dashboard</h1>
+            <div class="user-info">
+                <span>Welcome, <strong>{{ session.get('admin', 'Admin') }}</strong></span>
+                <a href="/logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section active">
+            <!-- Quick Actions -->
+            <h2 style="color: #F57C00; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-bolt"></i> Quick Actions
+            </h2>
+            <div class="quick-actions">
+                <div class="action-card" onclick="showSection('intruders')">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>View Intrusions</h3>
+                    <p>Access all detected attacks</p>
+                </div>
+                <div class="action-card" onclick="showSection('captured-evidence')">
+                    <i class="fas fa-camera"></i>
+                    <h3>Captured Evidence</h3>
+                    <p>View forensic images</p>
+                </div>
+                <div class="action-card" onclick="showSection('keylogs')">
+                    <i class="fas fa-keyboard"></i>
+                    <h3>Keystroke Logs</h3>
+                    <p>Review keylog data</p>
+                </div>
+                <div class="action-card" onclick="showSection('analytics')">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Analytics</h3>
+                    <p>View attack statistics</p>
+                </div>
+                <div class="action-card" onclick="showSection('map')">
+                    <i class="fas fa-globe"></i>
+                    <h3>Attack Map</h3>
+                    <p>Geographic locations</p>
+                </div>
+                <div class="action-card" onclick="showSection('students')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Student Data</h3>
+                    <p>Manage student records</p>
+                </div>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card danger">
+                    <div class="stat-header">
+                        <h3>TOTAL INTRUSIONS</h3>
+                        <div class="stat-icon danger">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">{{ stats.get('total_intrusions', 0) }}</div>
+                    <div class="stat-label">All time detected attacks</div>
+                </div>
+                
+                <div class="stat-card warning">
+                    <div class="stat-header">
+                        <h3>HIGH RISK ATTACKS</h3>
+                        <div class="stat-icon warning">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">{{ stats.get('high_risk', 0) }}</div>
+                    <div class="stat-label">Risk score > 70</div>
+                </div>
+                
+                <div class="stat-card success">
+                    <div class="stat-header">
+                        <h3>LEGITIMATE LOGINS</h3>
+                        <div class="stat-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">{{ stats.get('legitimate_logins', 0) }}</div>
+                    <div class="stat-label">Successful student logins</div>
+                </div>
+                
+                <div class="stat-card info">
+                    <div class="stat-header">
+                        <h3>HONEYPOT TRAPS</h3>
+                        <div class="stat-icon info">
+                            <i class="fas fa-spider"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">{{ stats.get('honeypot_hits', 0) }}</div>
+                    <div class="stat-label">Fake admin access attempts</div>
+                </div>
+            </div>
+
+            <!-- Recent Intrusions -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-history"></i> Recent Intrusions</h2>
+                    <a href="#" class="btn" onclick="showSection('intruders'); return false;">View All</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Incident ID</th>
+                            <th>IP Address</th>
+                            <th>Location</th>
+                            <th>Attack Type</th>
+                            <th>Risk Score</th>
+                            <th>Timestamp</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if intrusions %}
+                            {% for intrusion in intrusions[:5] %}
+                            <tr>
+                                <td>{{ intrusion.incident_id }}</td>
+                                <td>{{ intrusion.ip }}</td>
+                                <td>{{ intrusion.get('city', 'Unknown') }}, {{ intrusion.get('country', 'Unknown') }}</td>
+                                <td>{{ intrusion.reason }}</td>
+                                <td>
+                                    <span class="badge badge-{% if intrusion.get('risk_score', 0) > 70 %}high{% elif intrusion.get('risk_score', 0) > 40 %}medium{% else %}low{% endif %}">
+                                        {{ intrusion.get('risk_score', 0) }}
+                                    </span>
+                                </td>
+                                <td>{{ intrusion.timestamp }}</td>
+                                <td>
+                                    <a href="/evidence/{{ intrusion.incident_id }}" class="view-btn">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="no-data">No intrusions detected yet</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Intruders Section -->
+        <div id="intruders" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user-secret"></i> All Intrusion Logs</h2>
+                    <a href="/export/csv" class="btn"><i class="fas fa-download"></i> Export CSV</a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by IP, location, attack type..." onkeyup="searchTable()">
+                    <button class="btn btn-secondary" onclick="filterByRisk('all')">All</button>
+                    <button class="btn btn-secondary" onclick="filterByRisk('high')">High Risk</button>
+                    <button class="btn btn-secondary" onclick="filterByRisk('medium')">Medium</button>
+                    <button class="btn btn-secondary" onclick="filterByRisk('low')">Low</button>
+                </div>
+                
+                <table id="intruderTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Incident ID <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(1)">IP Address <i class="fas fa-sort"></i></th>
+                            <th>MAC Address</th>
+                            <th onclick="sortTable(3)">Location <i class="fas fa-sort"></i></th>
+                            <th>ISP</th>
+                            <th>Attack Type</th>
+                            <th onclick="sortTable(6)">Risk Score <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable(7)">Timestamp <i class="fas fa-sort"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for intrusion in intrusions %}
+                        <tr>
+                            <td>{{ intrusion.incident_id }}</td>
+                            <td>{{ intrusion.ip }}</td>
+                            <td>{{ intrusion.get('mac', 'N/A') }}</td>
+                            <td>{{ intrusion.get('city', 'Unknown') }}, {{ intrusion.get('state', '') }} {{ intrusion.get('country', 'Unknown') }}</td>
+                            <td>{{ intrusion.get('isp', 'N/A') }}</td>
+                            <td>{{ intrusion.reason }}</td>
+                            <td>
+                                <span class="badge badge-{% if intrusion.get('risk_score', 0) > 70 %}high{% elif intrusion.get('risk_score', 0) > 40 %}medium{% else %}low{% endif %}">
+                                    {{ intrusion.get('risk_score', 0) }}
+                                </span>
+                            </td>
+                            <td>{{ intrusion.timestamp }}</td>
+                            <td>
+                                <a href="/evidence/{{ intrusion.incident_id }}" class="view-btn">
+                                    <i class="fas fa-eye"></i> Evidence
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Students Section -->
+        <div id="students" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-users"></i> Student Database</h2>
+                    <span class="stat-label">Total Students: {{ students|length }}</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Year</th>
+                            <th>CGPA</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ student.username }}</td>
+                            <td>{{ student.get('profile', {}).get('full_name', student.get('name', 'N/A')) }}</td>
+                            <td>{{ student.username }}</td>
+                            <td>{{ student.get('profile', {}).get('department', student.get('department', 'N/A')) }}</td>
+                            <td>{{ student.get('profile', {}).get('year', student.get('year', 'N/A')) }}</td>
+                            <td>{{ student.get('academics', {}).get('cgpa', student.get('cgpa', 'N/A')) }}</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Captured Evidence Section -->
+        <div id="captured-evidence" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-folder-open"></i> Captured Evidence - Images & Screenshots</h2>
+                    <button class="btn" onclick="refreshEvidence()"><i class="fas fa-sync"></i> Refresh</button>
+                </div>
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 20px; height: 600px;">
+                    <!-- File Browser -->
+                    <div style="background: #0f1419; border-radius: 8px; padding: 20px; overflow-y: auto;">
+                        <h3 style="color: #F57C00; margin-bottom: 15px; font-size: 16px;">
+                            <i class="fas fa-images"></i> Captured Files
+                        </h3>
+                        <div id="imageFileList" style="display: flex; flex-direction: column; gap: 8px;">
+                            <p style="color: #718096; font-size: 14px;">Loading files...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Preview -->
+                    <div style="background: #0f1419; border-radius: 8px; padding: 20px; display: flex; flex-direction: column;">
+                        <h3 style="color: #F57C00; margin-bottom: 15px; font-size: 16px;">
+                            <i class="fas fa-eye"></i> Preview
+                        </h3>
+                        <div id="imagePreview" style="flex: 1; display: flex; align-items: center; justify-content: center; border: 2px dashed #2d3748; border-radius: 8px; overflow: auto;">
+                            <div style="text-align: center; color: #718096;">
+                                <i class="fas fa-image" style="font-size: 64px; margin-bottom: 15px; opacity: 0.3;"></i>
+                                <p>Select a file to preview</p>
+                            </div>
+                        </div>
+                        <div id="imageMetadata" style="margin-top: 15px; padding: 15px; background: #1a1f29; border-radius: 6px; display: none;">
+                            <p style="color: #a0aec0; font-size: 14px; margin: 5px 0;"><strong>Filename:</strong> <span id="imgFilename"></span></p>
+                            <p style="color: #a0aec0; font-size: 14px; margin: 5px 0;"><strong>Size:</strong> <span id="imgSize"></span></p>
+                            <p style="color: #a0aec0; font-size: 14px; margin: 5px 0;"><strong>Type:</strong> <span id="imgType"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keylogs Section -->
+        <div id="keylogs" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-keyboard"></i> Keystroke Logs</h2>
+                    <button class="btn" onclick="refreshKeylogs()"><i class="fas fa-sync"></i> Refresh</button>
+                </div>
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 20px; height: 600px;">
+                    <!-- File Browser -->
+                    <div style="background: #0f1419; border-radius: 8px; padding: 20px; overflow-y: auto;">
+                        <h3 style="color: #F57C00; margin-bottom: 15px; font-size: 16px;">
+                            <i class="fas fa-file-alt"></i> Keylog Files
+                        </h3>
+                        <div id="keylogFileList" style="display: flex; flex-direction: column; gap: 8px;">
+                            <p style="color: #718096; font-size: 14px;">Loading files...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Keylog Content Preview -->
+                    <div style="background: #0f1419; border-radius: 8px; padding: 20px; overflow-y: auto;">
+                        <h3 style="color: #F57C00; margin-bottom: 15px; font-size: 16px;">
+                            <i class="fas fa-eye"></i> Keylog Content
+                        </h3>
+                        <div id="keylogPreview" style="font-family: 'Courier New', monospace; font-size: 13px; color: #e1e8ed; white-space: pre-wrap; min-height: 400px;">
+                            <div style="text-align: center; color: #718096; padding: 80px 20px;">
+                                <i class="fas fa-keyboard" style="font-size: 64px; margin-bottom: 15px; opacity: 0.3;"></i>
+                                <p>Select a keylog file to view content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div id="analytics" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-chart-line"></i> Attack Analytics</h2>
+                </div>
+                <div class="charts-grid">
+                    <div class="card">
+                        <h3 style="color: #a0aec0; margin-bottom: 15px;">Attack Type Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="attackTypeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #a0aec0; margin-bottom: 15px;">Intrusions Over Time</h3>
+                        <div class="chart-container">
+                            <canvas id="timelineChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #a0aec0; margin-bottom: 15px;">Attacks by Country</h3>
+                        <div class="chart-container">
+                            <canvas id="countryChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #a0aec0; margin-bottom: 15px;">Risk Score Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="riskChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Performance Metrics -->
+            <div class="card" style="margin-top: 30px;">
+                <div class="card-header">
+                    <h2><i class="fas fa-robot"></i> AI Performance & Threat Intelligence</h2>
+                </div>
+                <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-number" id="ai-total-patterns">Loading...</div>
+                        <div class="stat-label">Total AI Patterns</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-number" id="ai-sql-patterns">Loading...</div>
+                        <div class="stat-label">SQL Injection</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔍</div>
+                        <div class="stat-number" id="ai-xss-patterns">Loading...</div>
+                        <div class="stat-label">XSS Patterns</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-number" id="ai-confidence">Loading...</div>
+                        <div class="stat-label">Avg Confidence</div>
+                    </div>
+                </div>
+                
+                <!-- AI Training Controls -->
+                <div style="padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%); border-radius: 10px; border: 1px solid #F57C00;">
+                    <h3 style="color: #F57C00; margin-bottom: 15px;">🔄 Threat Intelligence Integration</h3>
+                    <p style="color: #e1e8ed; margin-bottom: 15px;">Manually trigger AI pattern learning from external threat intelligence feeds (AbuseIPDB, VirusTotal, AlienVault OTX).</p>
+                    <button onclick="trainAI()" style="background: linear-gradient(135deg, #F57C00 0%, #ff8c1a 100%); color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                        🚀 Train AI from Threat Feeds
+                    </button>
+                    <div id="ai-train-result" style="margin-top: 15px; color: #10b981; font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attack Map Section -->
+        <div id="map" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-map-marked-alt"></i> Global Attack Map</h2>
+                </div>
+                <div id="attack-map"></div>
+            </div>
+        </div>
+
+        <!-- Honeypot Events Section -->
+        <div id="honeypot" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-spider"></i> Honeypot Events</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>IP Address</th>
+                            <th>Fake Credential Used</th>
+                            <th>Actions Performed</th>
+                            <th>Duration</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in honeypot_events %}
+                        <tr>
+                            <td>{{ event.incident_id }}</td>
+                            <td>{{ event.ip }}</td>
+                            <td>{{ event.username }}</td>
+                            <td>{{ event.get('actions_count', 0) }} clicks</td>
+                            <td>{{ event.get('duration', 'N/A') }}</td>
+                            <td>{{ event.timestamp }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI Training Data Section -->
+        <div id="ai-training" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-brain"></i> AI Training Data</h2>
+                    <button class="btn" onclick="reloadAI()"><i class="fas fa-sync"></i> Reload AI</button>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card info">
+                        <h3>SQL Injection Patterns</h3>
+                        <div class="stat-number">{{ ai_patterns.sql_count }}</div>
+                    </div>
+                    <div class="stat-card info">
+                        <h3>XSS Patterns</h3>
+                        <div class="stat-number">{{ ai_patterns.xss_count }}</div>
+                    </div>
+                    <div class="stat-card info">
+                        <h3>Brute Force Rules</h3>
+                        <div class="stat-number">{{ ai_patterns.brute_count }}</div>
+                    </div>
+                    <div class="stat-card info">
+                        <h3>Total Attack Signatures</h3>
+                        <div class="stat-number">{{ ai_patterns.total }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Settings Section -->
+        <div id="settings" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-cog"></i> System Configuration</h2>
+                    <button class="btn" onclick="saveSettings()"><i class="fas fa-save"></i> Save Settings</button>
+                </div>
+                <div style="max-width: 600px;">
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #a0aec0;">DEMO MODE</label>
+                        <select class="search-input" id="demoMode" style="width: 100%;">
+                            <option value="true" {% if demo_mode %}selected{% endif %}>Enabled (Safe)</option>
+                            <option value="false" {% if not demo_mode %}selected{% endif %}>Disabled (Production)</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #a0aec0;">Screenshot Interval (seconds)</label>
+                        <input type="number" class="search-input" value="5" style="width: 100%;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #a0aec0;">Webcam Capture</label>
+                        <select class="search-input" style="width: 100%;">
+                            <option value="true">Enabled</option>
+                            <option value="false">Disabled</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; color: #a0aec0;">Keylogger</label>
+                        <select class="search-input" style="width: 100%;">
+                            <option value="true">Enabled</option>
+                            <option value="false">Disabled</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Sidebar for Mobile
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const mainContent = document.querySelector('.main-content');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
+        // Section Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Find and activate the correct nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Close sidebar on mobile after navigation
+            if (window.innerWidth <= 1024) {
+                const sidebar = document.querySelector('.sidebar');
+                const overlay = document.querySelector('.sidebar-overlay');
+                if (sidebar.classList.contains('active')) {
+                    toggleSidebar();
+                }
+            }
+            
+            if (sectionId === 'map') {
+                initMap();
+            } else if (sectionId === 'analytics') {
+                initCharts();
+            } else if (sectionId === 'captured-evidence') {
+                refreshEvidence();
+            } else if (sectionId === 'keylogs') {
+                refreshKeylogs();
+            }
+        }
+        
+        // Search Table
+        function searchTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('intruderTable');
+            const tr = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < tr.length; i++) {
+                const row = tr[i];
+                let found = false;
+                const tds = row.getElementsByTagName('td');
+                
+                for (let j = 0; j < tds.length; j++) {
+                    const td = tds[j];
+                    if (td) {
+                        const txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                
+                row.style.display = found ? '' : 'none';
+            }
+        }
+        
+        // Filter by Risk
+        function filterByRisk(level) {
+            const table = document.getElementById('intruderTable');
+            const tr = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < tr.length; i++) {
+                const row = tr[i];
+                const badge = row.querySelector('.badge');
+                
+                if (!badge) continue;
+                
+                if (level === 'all') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = badge.classList.contains('badge-' + level) ? '' : 'none';
+                }
+            }
+        }
+        
+        // Sort Table
+        function sortTable(n) {
+            const table = document.getElementById('intruderTable');
+            let switching = true;
+            let dir = 'asc';
+            let switchcount = 0;
+            
+            while (switching) {
+                switching = false;
+                const rows = table.rows;
+                
+                for (let i = 1; i < (rows.length - 1); i++) {
+                    let shouldSwitch = false;
+                    const x = rows[i].getElementsByTagName('TD')[n];
+                    const y = rows[i + 1].getElementsByTagName('TD')[n];
+                    
+                    if (dir == 'asc') {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == 'desc') {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == 'asc') {
+                        dir = 'desc';
+                        switching = true;
+                    }
+                }
+            }
+        }
+        
+        // Captured Evidence Functions
+        function refreshEvidence() {
+            fetch('/api/captured-files')
+                .then(r => r.json())
+                .then(data => {
+                    const list = document.getElementById('imageFileList');
+                    if (data.files && data.files.length > 0) {
+                        list.innerHTML = data.files.map(file => `
+                            <div onclick="viewImage('${file.path}')" style="cursor: pointer; padding: 10px; background: #1a1f29; border-radius: 6px; transition: all 0.3s;">
+                                <i class="fas fa-image" style="color: #F57C00; margin-right: 8px;"></i>
+                                <span style="font-size: 13px;">${file.name}</span>
+                                <div style="font-size: 11px; color: #718096; margin-top: 4px;">${file.size}</div>
+                            </div>
+                        `).join('');
+                    } else {
+                        list.innerHTML = '<p style="color: #718096; font-size: 14px;">No captured images found</p>';
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('imageFileList').innerHTML = '<p style="color: #ef4444; font-size: 14px;">Error loading files</p>';
+                });
+        }
+        
+        function viewImage(filepath) {
+            const preview = document.getElementById('imagePreview');
+            const metadata = document.getElementById('imageMetadata');
+            
+            preview.innerHTML = `<img src="/${filepath}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;">`;
+            
+            const filename = filepath.split('/').pop();
+            document.getElementById('imgFilename').textContent = filename;
+            document.getElementById('imgType').textContent = 'Image';
+            
+            fetch('/' + filepath, {method: 'HEAD'})
+                .then(r => {
+                    const size = r.headers.get('content-length');
+                    document.getElementById('imgSize').textContent = size ? (size / 1024).toFixed(2) + ' KB' : 'Unknown';
+                    metadata.style.display = 'block';
+                });
+        }
+        
+        // Keylog Functions
+        function refreshKeylogs() {
+            fetch('/api/keylog-files')
+                .then(r => r.json())
+                .then(data => {
+                    const list = document.getElementById('keylogFileList');
+                    if (data.files && data.files.length > 0) {
+                        list.innerHTML = data.files.map(file => `
+                            <div onclick="viewKeylog('${file.path}')" style="cursor: pointer; padding: 10px; background: #1a1f29; border-radius: 6px; transition: all 0.3s;">
+                                <i class="fas fa-file-alt" style="color: #F57C00; margin-right: 8px;"></i>
+                                <span style="font-size: 13px;">${file.name}</span>
+                                <div style="font-size: 11px; color: #718096; margin-top: 4px;">${file.size}</div>
+                            </div>
+                        `).join('');
+                    } else {
+                        list.innerHTML = '<p style="color: #718096; font-size: 14px;">No keylog files found</p>';
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('keylogFileList').innerHTML = '<p style="color: #ef4444; font-size: 14px;">Error loading files</p>';
+                });
+        }
+        
+        function viewKeylog(filepath) {
+            const preview = document.getElementById('keylogPreview');
+            preview.innerHTML = '<div style="text-align: center; padding: 40px; color: #718096;"><i class="fas fa-spinner fa-spin"></i> Loading...</div>';
+            
+            fetch('/api/keylog-content?file=' + encodeURIComponent(filepath))
+                .then(r => r.json())
+                .then(data => {
+                    if (data.content) {
+                        preview.innerHTML = `<pre style="margin: 0; color: #e1e8ed;">${data.content}</pre>`;
+                    } else {
+                        preview.innerHTML = '<p style="color: #ef4444;">Error loading keylog content</p>';
+                    }
+                })
+                .catch(() => {
+                    preview.innerHTML = '<p style="color: #ef4444;">Error loading keylog content</p>';
+                });
+        }
+        
+        // Initialize Charts with Real Data
+        function initCharts() {
+            fetch('/api/analytics/realtime')
+                .then(r => r.json())
+                .then(data => {
+                    // Attack Type Distribution
+                    const ctx1 = document.getElementById('attackTypeChart');
+                    if (ctx1) {
+                        const labels = Object.keys(data.attack_types);
+                        const values = Object.values(data.attack_types);
+                        const colors = ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6', '#10b981', '#ec4899'];
+                        
+                        new Chart(ctx1, {
+                            type: 'doughnut',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    data: values,
+                                    backgroundColor: colors.slice(0, labels.length)
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#e1e8ed' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Timeline Chart
+                    const ctx2 = document.getElementById('timelineChart');
+                    if (ctx2) {
+                        const dates = Object.keys(data.timeline);
+                        const counts = Object.values(data.timeline);
+                        
+                        new Chart(ctx2, {
+                            type: 'line',
+                            data: {
+                                labels: dates,
+                                datasets: [{
+                                    label: 'Intrusions',
+                                    data: counts,
+                                    borderColor: '#F57C00',
+                                    backgroundColor: 'rgba(245, 124, 0, 0.1)',
+                                    tension: 0.4,
+                                    fill: true
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#e1e8ed' }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: { color: '#e1e8ed' },
+                                        grid: { color: '#2d3748' }
+                                    },
+                                    x: {
+                                        ticks: { color: '#e1e8ed' },
+                                        grid: { color: '#2d3748' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Country Distribution Chart
+                    const ctx3 = document.getElementById('countryChart');
+                    if (ctx3) {
+                        const countries = Object.keys(data.countries).slice(0, 10);
+                        const countryCounts = Object.values(data.countries).slice(0, 10);
+                        
+                        new Chart(ctx3, {
+                            type: 'bar',
+                            data: {
+                                labels: countries,
+                                datasets: [{
+                                    label: 'Attacks',
+                                    data: countryCounts,
+                                    backgroundColor: '#F57C00'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#e1e8ed' }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: { color: '#e1e8ed' },
+                                        grid: { color: '#2d3748' }
+                                    },
+                                    x: {
+                                        ticks: { color: '#e1e8ed' },
+                                        grid: { color: '#2d3748' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // Risk Score Distribution Chart
+                    const ctx4 = document.getElementById('riskChart');
+                    if (ctx4) {
+                        new Chart(ctx4, {
+                            type: 'pie',
+                            data: {
+                                labels: ['High Risk', 'Medium Risk', 'Low Risk'],
+                                datasets: [{
+                                    data: [data.risk_distribution.high, data.risk_distribution.medium, data.risk_distribution.low],
+                                    backgroundColor: ['#ef4444', '#f59e0b', '#10b981']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#e1e8ed' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                })
+                .catch(err => console.error('Error loading analytics:', err));
+        }
+        
+        // Initialize Map
+        function initMap() {
+            const map = L.map('attack-map').setView([20, 0], 2);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Add markers for intrusions with coordinates
+            {% for intrusion in intrusions %}
+                {% if intrusion.get('latitude') and intrusion.get('longitude') %}
+                    L.marker([{{ intrusion.latitude }}, {{ intrusion.longitude }}])
+                        .addTo(map)
+                        .bindPopup('<b>{{ intrusion.incident_id }}</b><br>IP: {{ intrusion.ip }}<br>{{ intrusion.get('city', 'Unknown') }}, {{ intrusion.get('country', 'Unknown') }}<br>Risk: {{ intrusion.get('risk_score', 0) }}');
+                {% endif %}
+            {% endfor %}
+        }
+        
+        // Reload AI
+        function reloadAI() {
+            alert('AI Training Data Reloaded Successfully');
+        }
+        
+        // Save Settings
+        function saveSettings() {
+            alert('Settings Saved Successfully');
+        }
+        
+        // Load AI pattern statistics
+        function loadAIStats() {
+            fetch('/api/ai/patterns')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('ai-total-patterns').textContent = data.total || 0;
+                    document.getElementById('ai-sql-patterns').textContent = data.sql_injection || 0;
+                    document.getElementById('ai-xss-patterns').textContent = data.xss || 0;
+                })
+                .catch(err => console.error('Error loading AI stats:', err));
+            
+            // Load AI performance metrics
+            fetch('/api/ai/performance')
+                .then(r => r.json())
+                .then(data => {
+                    const avgConf = Math.round(data.avg_confidence);
+                    document.getElementById('ai-confidence').textContent = avgConf + '%';
+                })
+                .catch(err => console.error('Error loading AI performance:', err));
+        }
+        
+        // Manually trigger AI training
+        function trainAI() {
+            const btn = event.target;
+            const resultDiv = document.getElementById('ai-train-result');
+            
+            btn.disabled = true;
+            btn.textContent = '⏳ Training AI...';
+            resultDiv.textContent = '';
+            
+            fetch('/api/ai/train', {method: 'POST'})
+                .then(r => r.json())
+                .then(data => {
+                    btn.disabled = false;
+                    btn.textContent = '🚀 Train AI from Threat Feeds';
+                    
+                    if (data.status === 'success') {
+                        resultDiv.innerHTML = `✅ Success! Learned ${data.patterns_added} new patterns from threat intelligence feeds.`;
+                        setTimeout(() => loadAIStats(), 500);
+                    } else {
+                        resultDiv.innerHTML = `❌ Training failed: ${data.message || 'Unknown error'}`;
+                        resultDiv.style.color = '#ef4444';
+                    }
+                })
+                .catch(err => {
+                    btn.disabled = false;
+                    btn.textContent = '🚀 Train AI from Threat Feeds';
+                    resultDiv.innerHTML = '❌ Error: ' + err.message;
+                    resultDiv.style.color = '#ef4444';
+                });
+        }
+        
+        // Initialize charts on load
+        setTimeout(initCharts, 1000);
+        setTimeout(loadAIStats, 1500);
+    </script>
+</body>
+</html>

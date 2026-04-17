@@ -1,0 +1,490 @@
+{
+  "users": [
+    {
+      "id": "ST100",
+      "username": "2211cs040100@mru.edu.in",
+      "password": "Student@100",
+      "role": "student",
+      "profile": {
+        "full_name": "Rajesh Kumar Patel",
+        "roll_number": "2211CS040100",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "A",
+        "phone": "+91 9876543210",
+        "address": "Hyderabad, Telangana",
+        "date_of_birth": "2003-05-15",
+        "blood_group": "O+",
+        "father_name": "Suresh Kumar Patel",
+        "mother_name": "Lakshmi Devi"
+      },
+      "academics": {
+        "cgpa": "8.5",
+        "sgpa_current": "8.7",
+        "total_credits": "120",
+        "semester": "6",
+        "backlogs": "0",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "A+"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "B+"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "92%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 26,
+            "total": 28,
+            "percentage": "93%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 27,
+            "total": 30,
+            "percentage": "90%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 25,
+            "total": 27,
+            "percentage": "93%"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ST101",
+      "username": "2211cs040101@mru.edu.in",
+      "password": "Student@101",
+      "role": "student",
+      "profile": {
+        "full_name": "Priya Sharma Reddy",
+        "roll_number": "2211CS040101",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "A",
+        "phone": "+91 9876543211",
+        "address": "Secunderabad, Telangana",
+        "date_of_birth": "2003-08-22",
+        "blood_group": "A+",
+        "father_name": "Rajesh Sharma",
+        "mother_name": "Kavita Reddy"
+      },
+      "academics": {
+        "cgpa": "9.2",
+        "sgpa_current": "9.5",
+        "total_credits": "120",
+        "semester": "6",
+        "backlogs": "0",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "A+"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "A+"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "A+"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "A"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "95%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 29,
+            "total": 30,
+            "percentage": "97%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 27,
+            "total": 28,
+            "percentage": "96%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 26,
+            "total": 27,
+            "percentage": "96%"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ST102",
+      "username": "2211cs040102@mru.edu.in",
+      "password": "Student@102",
+      "role": "student",
+      "profile": {
+        "full_name": "Amit Singh Rao",
+        "roll_number": "2211CS040102",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "B",
+        "phone": "+91 9876543212",
+        "address": "Kompally, Hyderabad",
+        "date_of_birth": "2003-02-10",
+        "blood_group": "B+",
+        "father_name": "Vikram Singh",
+        "mother_name": "Sunita Rao"
+      },
+      "academics": {
+        "cgpa": "7.8",
+        "sgpa_current": "8.1",
+        "total_credits": "118",
+        "semester": "6",
+        "backlogs": "1",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "B+"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "A"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "B"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "B+"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "88%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 26,
+            "total": 30,
+            "percentage": "87%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 25,
+            "total": 28,
+            "percentage": "89%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 26,
+            "total": 30,
+            "percentage": "87%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 24,
+            "total": 27,
+            "percentage": "89%"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ST103",
+      "username": "2211cs040103@mru.edu.in",
+      "password": "Student@103",
+      "role": "student",
+      "profile": {
+        "full_name": "Sneha Lakshmi Devi",
+        "roll_number": "2211CS040103",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "B",
+        "phone": "+91 9876543213",
+        "address": "Miyapur, Hyderabad",
+        "date_of_birth": "2003-11-05",
+        "blood_group": "AB+",
+        "father_name": "Ramesh Devi",
+        "mother_name": "Padma Lakshmi"
+      },
+      "academics": {
+        "cgpa": "8.9",
+        "sgpa_current": "9.1",
+        "total_credits": "120",
+        "semester": "6",
+        "backlogs": "0",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "A+"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "A+"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "A"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "94%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 27,
+            "total": 28,
+            "percentage": "96%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 26,
+            "total": 27,
+            "percentage": "96%"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ST104",
+      "username": "2211cs040104@mru.edu.in",
+      "password": "Student@104",
+      "role": "student",
+      "profile": {
+        "full_name": "Karthik Venkat Naidu",
+        "roll_number": "2211CS040104",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "C",
+        "phone": "+91 9876543214",
+        "address": "Kukatpally, Hyderabad",
+        "date_of_birth": "2003-07-18",
+        "blood_group": "O-",
+        "father_name": "Venkatesh Naidu",
+        "mother_name": "Saraswati Devi"
+      },
+      "academics": {
+        "cgpa": "8.2",
+        "sgpa_current": "8.4",
+        "total_credits": "120",
+        "semester": "6",
+        "backlogs": "0",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "B+"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "B+"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "90%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 27,
+            "total": 30,
+            "percentage": "90%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 25,
+            "total": 28,
+            "percentage": "89%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 27,
+            "total": 30,
+            "percentage": "90%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 25,
+            "total": 27,
+            "percentage": "93%"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ST105",
+      "username": "2211cs040105@mru.edu.in",
+      "password": "Student@105",
+      "role": "student",
+      "profile": {
+        "full_name": "Anjali Reddy Chowdary",
+        "roll_number": "2211CS040105",
+        "department": "Computer Science & Engineering",
+        "year": "3rd Year",
+        "section": "C",
+        "phone": "+91 9876543215",
+        "address": "Gachibowli, Hyderabad",
+        "date_of_birth": "2003-09-30",
+        "blood_group": "A-",
+        "father_name": "Mohan Reddy",
+        "mother_name": "Sowmya Chowdary"
+      },
+      "academics": {
+        "cgpa": "8.7",
+        "sgpa_current": "8.9",
+        "total_credits": "120",
+        "semester": "6",
+        "backlogs": "0",
+        "subjects": [
+          {
+            "code": "CS601",
+            "name": "Machine Learning",
+            "credits": 4,
+            "grade": "A+"
+          },
+          {
+            "code": "CS602",
+            "name": "Cloud Computing",
+            "credits": 3,
+            "grade": "A"
+          },
+          {
+            "code": "CS603",
+            "name": "Cyber Security",
+            "credits": 4,
+            "grade": "A"
+          },
+          {
+            "code": "CS604",
+            "name": "Big Data Analytics",
+            "credits": 3,
+            "grade": "A"
+          }
+        ]
+      },
+      "attendance": {
+        "overall_percentage": "93%",
+        "subjects": [
+          {
+            "name": "Machine Learning",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Cloud Computing",
+            "present": 26,
+            "total": 28,
+            "percentage": "93%"
+          },
+          {
+            "name": "Cyber Security",
+            "present": 28,
+            "total": 30,
+            "percentage": "93%"
+          },
+          {
+            "name": "Big Data Analytics",
+            "present": 25,
+            "total": 27,
+            "percentage": "93%"
+          }
+        ]
+      }
+    }
+  ]
+}

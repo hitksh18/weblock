@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Malla Reddy University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+</head>
+<body>
+    <div class="student-container">
+        <div class="dashboard-header">
+            <div class="user-profile">
+                <div class="user-avatar">{{ user.profile.full_name[0] if user and user.profile else 'S' }}</div>
+                <div class="user-info">
+                    <h2>Academic Performance</h2>
+                    <p>{{ user.profile.roll_number if user and user.profile else 'N/A' }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-cards">
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Overall Performance</h3>
+                
+                <div class="profile-row">
+                    <span class="profile-label">CGPA</span>
+                    <span class="profile-value" style="color: #4CAF50; font-weight: 700; font-size: 1.25rem;">{{ user.academics.cgpa if user and user.academics else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Current SGPA</span>
+                    <span class="profile-value" style="color: #1A73E8; font-weight: 700; font-size: 1.25rem;">{{ user.academics.sgpa_current if user and user.academics else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Total Credits</span>
+                    <span class="profile-value">{{ user.academics.total_credits if user and user.academics else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Current Semester</span>
+                    <span class="profile-value">{{ user.academics.semester if user and user.academics else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Backlogs</span>
+                    <span class="profile-value" style="color: #4CAF50; font-weight: 600;">{{ user.academics.backlogs if user and user.academics else 'N/A' }}</span>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Current Subjects</h3>
+                
+                {% if user and user.academics and user.academics.subjects %}
+                    {% for subject in user.academics.subjects %}
+                    <div class="profile-row">
+                        <div>
+                            <div class="profile-label">{{ subject.name }}</div>
+                            <div style="font-size: 0.8125rem; color: #9E9E9E;">{{ subject.code }} • {{ subject.credits }} Credits</div>
+                        </div>
+                        <span class="profile-value" style="color: #F57C00; font-weight: 700; font-size: 1.125rem;">{{ subject.grade }}</span>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="color: #9E9E9E; text-align: center;">No subjects data available</p>
+                {% endif %}
+            </div>
+            
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Attendance</h3>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Overall Attendance</span>
+                    <span class="profile-value" style="color: #4CAF50; font-weight: 700; font-size: 1.25rem;">{{ user.attendance.overall_percentage if user and user.attendance else 'N/A' }}</span>
+                </div>
+                
+                {% if user and user.attendance and user.attendance.subjects %}
+                    {% for subject in user.attendance.subjects %}
+                    <div class="profile-row">
+                        <div>
+                            <div class="profile-label">{{ subject.name }}</div>
+                            <div style="font-size: 0.8125rem; color: #9E9E9E;">{{ subject.present }}/{{ subject.total }} classes</div>
+                        </div>
+                        <span class="profile-value" style="font-weight: 600;">{{ subject.percentage }}</span>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="bottom-nav">
+            <a href="/student" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="/student/profile" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="/logout" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                </svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+</body>
+</html>

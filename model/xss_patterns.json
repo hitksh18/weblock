@@ -1,0 +1,14 @@
+{
+  "patterns": [
+    "(<script[^>]*>.*?</script>)",
+    "(javascript:)",
+    "(on\\w+\\s*=)",
+    "(<iframe[^>]*>)",
+    "(<img[^>]*onerror)",
+    "(<svg[^>]*onload)",
+    "(eval\\()",
+    "(alert\\()",
+    "(document\\.cookie)",
+    "(document\\.write)"
+  ]
+}

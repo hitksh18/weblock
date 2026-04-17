@@ -1,0 +1,24 @@
+{
+  "attack_type": "Behavioral Attack",
+  "description": "Patterns for detecting suspicious behavioral anomalies",
+  "indicators": {
+    "excessive_clicks_per_second": 5,
+    "excessive_clicks_threshold": 10,
+    "time_window_seconds": 2,
+    "typing_speed_wpm_threshold": 200,
+    "page_reload_threshold": 5,
+    "form_resubmission_threshold": 3,
+    "rapid_navigation": true,
+    "suspicious_dwell_time": true
+  },
+  "detection_rules": [
+    "10+ clicks in 2 seconds",
+    "Extremely fast typing (likely paste)",
+    "Repeated page reloads",
+    "Rapid form submissions",
+    "Automated bot-like behavior",
+    "Mouse movement anomalies"
+  ],
+  "risk_weight": 65,
+  "confidence_threshold": 70
+}

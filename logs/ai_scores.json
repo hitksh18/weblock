@@ -1,0 +1,52 @@
+[
+  {
+    "incident_id": "INC-20251124-232642",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "features_used": [
+      "SQL injection pattern match"
+    ],
+    "timestamp": "2025-11-24T23:26:42.857529"
+  },
+  {
+    "incident_id": "INC-20251124-232648",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "features_used": [
+      "SQL injection pattern match"
+    ],
+    "timestamp": "2025-11-24T23:26:48.881232"
+  },
+  {
+    "incident_id": "INC-20251124-232833",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "features_used": [
+      "SQL injection pattern match"
+    ],
+    "timestamp": "2025-11-24T23:28:33.885480"
+  },
+  {
+    "incident_id": "INC-20251124-234825",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "features_used": [
+      "SQL injection pattern match"
+    ],
+    "timestamp": "2025-11-24T23:48:25.665369"
+  },
+  {
+    "incident_id": "INC-20251124-235402",
+    "attack_type": "SQL Injection",
+    "confidence": 92,
+    "risk_score": 90,
+    "features_used": [
+      "SQL injection pattern match"
+    ],
+    "timestamp": "2025-11-24T23:54:02.170411"
+  }
+]

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login - MRU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0A2040 0%, #1a3a6b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-app {
+            max-width: 428px;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0A2040 0%, #1a3a6b 100%);
+            position: relative;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .status-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .login-container {
+            padding: 0 1.5rem;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .mru-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .mru-logo img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+        
+        .logo-text p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9375rem;
+            margin: 0;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .error-alert {
+            background: #FFEBEE;
+            color: #C62828;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .error-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #C62828;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: #0A2040;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9E9E9E;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #F57C00;
+            box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 1.125rem;
+            background: linear-gradient(135deg, #F57C00 0%, #FF9800 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(245, 124, 0, 0.3);
+            margin-top: 0.5rem;
+        }
+        
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .forgot-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .forgot-link a {
+            color: #F57C00;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
+        .footer-text {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8125rem;
+            margin-top: 2rem;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .login-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-app">
+        <div class="status-bar">
+            <div id="currentTime">9:41</div>
+            <div>••• ••• 100%</div>
+        </div>
+        
+        <div class="login-container">
+            <div class="logo-section">
+                <div class="mru-logo">
+                    <img src="{{ url_for('static', filename='images/mru_logo.png') }}" alt="MRU Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Malla Reddy University</h1>
+                </div>
+            </div>
+            
+            <div class="login-card">
+                {% if error %}
+                <div class="error-alert">
+                    <div class="error-icon">!</div>
+                    <div>{{ error }}</div>
+                </div>
+                {% endif %}
+                
+                <form method="POST" action="/login">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <input 
+                                type="text" 
+                                name="username" 
+                                class="form-input" 
+                                placeholder="student@mru.edu.in"
+                                required 
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="Enter your password"
+                                required 
+                                autocomplete="off">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        Login
+                    </button>
+                </form>
+                
+                <div class="forgot-link">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+    <script>
+        function updateTime() {
+            const options = {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            const timeString = new Intl.DateTimeFormat('en-IN', options).format(new Date());
+            const element = document.getElementById('currentTime');
+            if (element) {
+                element.textContent = timeString;
+            }
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>

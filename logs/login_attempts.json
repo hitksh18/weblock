@@ -1,0 +1,250 @@
+[
+  {
+    "username": "admin'--@test.com",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:26:42.856816",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:26:48.880711",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 2
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:28:33.884965",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:48:25.664430",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:53:18.153463",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-24T23:54:02.169457",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:08:04.609149",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin ",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:08:33.323824",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:13:58.695077",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:15:54.147900",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:16:20.594229",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:16:47.369981",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 2
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:22:14.998878",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:22:31.259946",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:27:02.158672",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 2
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:30:01.399049",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:30:42.009201",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 2
+  },
+  {
+    "username": "root",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:32:29.150664",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 1
+  },
+  {
+    "username": "2211cs040100@mru.edu.in",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T00:37:03.561429",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:02:41.671309",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "superadmin ",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:02:50.670785",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 2
+  },
+  {
+    "username": "admin ",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:04:16.971672",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 3
+  },
+  {
+    "username": "admin'--@test.com",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:14:29.353128",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin1825",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:16:38.534474",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin1825",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:20:53.227606",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin1825",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:25:37.642436",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "admin1825",
+    "ip": "172.31.91.66",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:35:19.416073",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "failed_attempts": 1
+  },
+  {
+    "username": "",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:37:42.092009",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 1
+  },
+  {
+    "username": "",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:40:06.725463",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 1
+  },
+  {
+    "username": "",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:40:38.480750",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 1
+  },
+  {
+    "username": "",
+    "ip": "127.0.0.1",
+    "mac": "00:00:00:00:00:00",
+    "timestamp": "2025-11-25T01:40:59.878947",
+    "user_agent": "curl/8.14.1",
+    "failed_attempts": 2
+  }
+]

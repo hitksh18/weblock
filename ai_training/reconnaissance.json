@@ -1,0 +1,32 @@
+{
+  "attack_type": "Reconnaissance / Enumeration",
+  "description": "Patterns for detecting reconnaissance and enumeration attempts",
+  "suspicious_paths": [
+    "/admin",
+    "/config",
+    "/.env",
+    "/backup",
+    "/root",
+    "/api/v1/users",
+    "/phpmyadmin",
+    "/wp-admin",
+    "/.git",
+    "/swagger",
+    "/graphql"
+  ],
+  "indicators": {
+    "url_tampering": true,
+    "directory_scanning": true,
+    "parameter_fuzzing": true,
+    "method_enumeration": true,
+    "header_manipulation": true
+  },
+  "query_patterns": [
+    "?debug=true",
+    "?admin=1",
+    "?test=1",
+    "?verbose=true"
+  ],
+  "risk_weight": 70,
+  "confidence_threshold": 72
+}

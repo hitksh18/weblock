@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Malla Reddy University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+</head>
+<body>
+    <div class="student-container">
+        <div class="dashboard-header">
+            <div class="user-profile">
+                <div class="user-avatar">{{ username[0].upper() if username else 'S' }}</div>
+                <div class="user-info">
+                    <h2>Welcome Back!</h2>
+                    <p>{{ username }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-cards">
+            <a href="/student/profile" style="text-decoration: none;">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-icon icon-profile">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3>My Profile</h3>
+                    </div>
+                    <div class="dashboard-card-content">
+                        View your personal information, contact details, and academic records
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/student/academics" style="text-decoration: none;">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div class="dashboard-card-icon icon-academics">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <h3>Academics</h3>
+                    </div>
+                    <div class="dashboard-card-content">
+                        Check your grades, attendance, subjects, and semester performance
+                    </div>
+                </div>
+            </a>
+            
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <div class="dashboard-card-icon icon-attendance">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3>Announcements</h3>
+                </div>
+                <div class="dashboard-card-content">
+                    Stay updated with latest news and important notifications
+                </div>
+            </div>
+        </div>
+        
+        <div style="padding: 0 1.5rem 6rem;">
+            <div style="background: white; border-radius: 20px; padding: 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <h3 style="color: #0A2040; margin-top: 0;">Quick Info</h3>
+                <p style="color: #5F6368; margin: 0;">Logged in as: <strong>{{ username }}</strong></p>
+                <p style="color: #5F6368; margin: 0.5rem 0 0 0;">Session Active</p>
+            </div>
+        </div>
+        
+        <div class="bottom-nav">
+            <a href="/student" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="/student/profile" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="/logout" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                </svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+</body>
+</html>

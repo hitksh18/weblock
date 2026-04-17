@@ -1,0 +1,33 @@
+{
+  "app_name": "WebLock - Intrusion Detection System",
+  "version": "1.0.0",
+  "demo_mode": true,
+  "consent_required": true,
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "WebLock-db"
+  },
+  "capture": {
+    "screenshot_interval_seconds": 5,
+    "screenshot_duration_minutes": 5,
+    "screenshot_resolution": [800, 600],
+    "webcam_enabled": false,
+    "keylogger_enabled": false,
+    "storage_retention_hours": 24
+  },
+  "geolocation": {
+    "api_key": "DEMO_API_KEY_REPLACE_WITH_REAL_KEY",
+    "api_url": "https://api.ipgeolocation.io/ipgeo"
+  },
+  "security": {
+    "session_timeout_minutes": 30,
+    "csrf_protection": true,
+    "rate_limiting": true
+  },
+  "demo_assets": {
+    "sample_intruder_image": "static/images/sample_intruder.jpg",
+    "sample_screenshots": "static/images/sample_screenshot_{1..5}.png",
+    "sample_keylogs": "logs/sample_key_logs.json"
+  }
+}

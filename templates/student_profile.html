@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Malla Reddy University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+</head>
+<body>
+    <div class="student-container">
+        <div class="dashboard-header">
+            <div class="user-profile">
+                <div class="user-avatar">{{ user.profile.full_name[0] if user and user.profile else 'S' }}</div>
+                <div class="user-info">
+                    <h2>{{ user.profile.full_name if user and user.profile else 'Student' }}</h2>
+                    <p>{{ user.profile.roll_number if user and user.profile else 'N/A' }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-cards">
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Personal Information</h3>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Full Name</span>
+                    <span class="profile-value">{{ user.profile.full_name if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Roll Number</span>
+                    <span class="profile-value">{{ user.profile.roll_number if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Department</span>
+                    <span class="profile-value">{{ user.profile.department if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Year</span>
+                    <span class="profile-value">{{ user.profile.year if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Section</span>
+                    <span class="profile-value">{{ user.profile.section if user and user.profile else 'N/A' }}</span>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Contact Details</h3>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Email</span>
+                    <span class="profile-value">{{ user.username if user else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Phone</span>
+                    <span class="profile-value">{{ user.profile.phone if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Address</span>
+                    <span class="profile-value">{{ user.profile.address if user and user.profile else 'N/A' }}</span>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h3 style="color: #0A2040; margin-top: 0;">Family Details</h3>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Father's Name</span>
+                    <span class="profile-value">{{ user.profile.father_name if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Mother's Name</span>
+                    <span class="profile-value">{{ user.profile.mother_name if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Date of Birth</span>
+                    <span class="profile-value">{{ user.profile.date_of_birth if user and user.profile else 'N/A' }}</span>
+                </div>
+                
+                <div class="profile-row">
+                    <span class="profile-label">Blood Group</span>
+                    <span class="profile-value">{{ user.profile.blood_group if user and user.profile else 'N/A' }}</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-nav">
+            <a href="/student" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+                <span>Home</span>
+            </a>
+            <a href="/student/profile" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a href="/logout" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                </svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+</body>
+</html>
