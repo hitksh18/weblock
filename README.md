@@ -1,91 +1,121 @@
-# WebLock – AI-Powered Cybersecurity and Digital Forensics System
+# 🔐 WebLock  
+### 🚀 AI-Powered Cybersecurity & Digital Forensics System  
 
-## Overview
-
-WebLock is an AI-based cybersecurity system designed to detect, analyze, and respond to malicious activities in web applications. It focuses on identifying common attack patterns and collecting forensic evidence to help understand and investigate security incidents.
-
-The system combines real-time monitoring, behavioral analysis, and automated response mechanisms to improve application security and provide insights into potential threats.
-
----
-
-## Problem Statement
-
-Modern web applications are frequently targeted by attacks such as SQL Injection, Cross-Site Scripting (XSS), and brute force login attempts. Traditional security systems often fail to detect these attacks early or provide sufficient evidence for analysis.
-
-There is a need for a system that can:
-- Detect attacks in real time  
-- Analyze user behavior  
-- Collect evidence automatically  
-- Assist in forensic investigation  
+<p align="center">
+  <img src="https://img.shields.io/badge/Security-AI%20Powered-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Built%20With-Flask-red?style=for-the-badge">
+</p>
 
 ---
 
-## Solution
+## 🧠 Overview  
 
-WebLock addresses these challenges by integrating attack detection with forensic data collection. When suspicious activity is detected, the system not only identifies the threat but also records important details for further investigation.
+**WebLock** is an AI-powered intrusion detection and digital forensic system that protects web applications from modern cyber threats.
 
 ---
 
-## Key Features
+## ⚠️ Problem  
 
-### 1. Real-Time Attack Detection
-WebLock detects various types of attacks including:
+Traditional systems fail against:
 - SQL Injection  
-- Cross-Site Scripting (XSS)  
-- Brute Force Attacks  
-- Credential-based attacks  
+- XSS  
+- Brute Force  
+- Credential Stuffing  
 
 ---
 
-### 2. Behavioral Analysis
-The system monitors user behavior such as repeated login attempts, unusual input patterns, and abnormal activity to identify potential threats.
+## ✅ Solution  
+
+WebLock provides:
+- Real-time attack detection  
+- Intruder capture (screenshots + webcam)  
+- Keylogging  
+- Admin dashboard  
+- Forensic reports  
+- AI-based detection  
 
 ---
 
-### 3. Intrusion Logging
-All login attempts and suspicious activities are logged with relevant details such as IP address, timestamp, and user behavior.
+## 🔥 Features  
+
+### 🛡️ Attack Detection
+- SQL Injection  
+- XSS  
+- Brute Force  
+- Session Hijacking  
+
+### 🕵️ Intruder Tracking
+- IP Address  
+- Device Info  
+- Location  
+- Behavior analysis  
+
+### 📸 Evidence Collection
+- Screenshots  
+- Webcam capture  
+- Keystrokes  
+
+### 📄 Reports
+- Auto-generated forensic PDF reports  
 
 ---
 
-### 4. Forensic Data Collection
-When an attack is detected, WebLock collects evidence such as:
-- Activity logs  
-- Input patterns  
-- System interactions  
+## 🧱 Tech Stack  
 
-This helps in analyzing and understanding the attack later.
-
----
-
-### 5. Automated Response Mechanism
-WebLock can trigger defensive actions when a threat is detected, helping to prevent further unauthorized access.
-
----
-
-### 6. Admin Monitoring Interface
-The system provides a dashboard where administrators can monitor activities, review logs, and analyze detected threats.
-
----
-
-## How It Works
-
-1. A user attempts to log in  
-2. The system analyzes the input and behavior  
-3. If suspicious activity is detected, it is classified as a potential attack  
-4. The system logs the activity and collects evidence  
-5. Administrators can review the data for further analysis  
-
----
-
-## Tech Stack
-
-- Backend: Python (Flask)  
-- Frontend: HTML, CSS, JavaScript  
+- Backend: Flask  
+- AI/ML: Scikit-learn  
 - Database: MongoDB  
-- AI/Logic: Pattern-based and behavioral analysis  
+- Frontend: HTML, CSS, JS  
 
 ---
 
-## Conclusion
+## 🚀 Installation  
 
-WebLock is designed to enhance web security by combining detection and forensic capabilities. It not only helps in identifying threats but also provides valuable insights for analyzing and preventing future attacks.
+```bash
+git clone https://github.com/hitksh18/weblock.git
+cd weblock
+pip install -r requirements.txt
+python app.py
+```
+
+Open in browser:
+
+```
+http://localhost:5000
+```
+
+---
+
+## ☁️ Deployment  
+
+- VPS (Hostinger / AWS)  
+- Local demo  
+- Hybrid architecture  
+
+---
+
+## 🧪 Demo Credentials  
+
+Admin:
+```
+admin1825 / admin@1825
+```
+
+Student:
+```
+2211cs040100@mru.edu.in / Student@100
+```
+
+---
+
+## 👨‍💻 Author  
+
+Hitesh Ksheersagar  
+GitHub: hitksh18  
+
+---
+
+## ⭐ Final Note  
+
+WebLock is a complete cyber defense and forensic system.v
